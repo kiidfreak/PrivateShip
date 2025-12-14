@@ -16,37 +16,19 @@ const server = Fastify({
     }
 });
 
-server.register(cors, {
-    origin: true,
-    credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
-});
-
-console.log('CORS registered for: http://localhost:3000');
-
-server.register(authRoutes, { prefix: '/api/v1' });
-
-server.get('/health', async (request, reply) => {
-    try {
-        const [dbResult, redisResult] = await Promise.all([
-            db.execute(sql`SELECT 1`),
-            redis.ping()
-        ]);
-
-        return {
-            status: 'ok',
-            db: 'connected',
-            redis: redisResult === 'PONG' ? 'connected' : 'disconnected',
-            timestamp: new Date().toISOString()
-        };
-    } catch (err) {
-        request.log.error(err);
-        return reply.status(500).send({ status: 'error', error: err });
-    }
-});
-
 const start = async () => {
     try {
+        await server.register(cors, {
+            origin: true,
+            credentials: true,
+            methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+            allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
+        });
+
+        console.log('CORS registered (in start)');
+
+        await server.register(authRoutes, { prefix: '/api/v1' });
+
         const port = 3001;
         await server.listen({ port, host: '0.0.0.0' });
         console.log(`Server listening on ${port}`);
