@@ -25,14 +25,15 @@ This document outlines the detailed execution plan broken down by domain: Fronte
 - **System Communication**: Next.js (Server Components/API Routes) proxies requests to the Fastify API to avoid CORS issues and secure internal tokens.
 
 ### Phase 2: User Authentication & Onboarding
-- [ ] **Auth Pages**:
-  - [ ] `/auth/login`: Phone number input form with country code selector.
-  - [ ] `/auth/verify`: OTP input form with countdown timer and resend logic.
-  - [ ] **State Management**: React Query hooks for API integration.
+- [x] **Auth Pages**:
+  - [x] `/auth/login`: Phone number input form with country code selector.
+  - [x] `/auth/verify`: OTP input form with countdown timer and resend logic.
+  - [x] **State Management**: Simple React state + API client integration.
 - [ ] **Identity Verification Flow**:
   - [ ] **ID Upload**: Drag-and-drop zone for front/back ID images.
   - [ ] **Liveness Check**: Camera interface integration (using `react-webcam` or vendor SDK).
   - [ ] **Verification Status**: Real-time polling UI for verification progress.
+  - [ ] **Backend Storage**: S3 presigned URLs for secure upload.
 
 ### Phase 3: User Dashboard (Trust Passport)
 - [ ] **Dashboard Layout**: Sidebar navigation, checking auth state.
