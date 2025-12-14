@@ -22,6 +22,8 @@ server.register(cors, {
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
 });
 
+console.log('CORS registered for: http://localhost:3000');
+
 server.register(authRoutes, { prefix: '/api/v1' });
 
 server.get('/health', async (request, reply) => {
