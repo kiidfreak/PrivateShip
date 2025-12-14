@@ -1,4 +1,5 @@
 import Fastify from 'fastify';
+import cors from '@fastify/cors';
 import dotenv from 'dotenv';
 dotenv.config();
 import { db } from './db';
@@ -13,6 +14,12 @@ const server = Fastify({
     logger: {
         level: 'info'
     }
+});
+
+server.register(cors, {
+    origin: ['http://localhost:3000'],
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
 });
 
 server.register(authRoutes, { prefix: '/api/v1' });
