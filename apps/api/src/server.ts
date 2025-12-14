@@ -32,6 +32,8 @@ const start = async () => {
         const port = 3001;
         await server.listen({ port, host: '0.0.0.0' });
         console.log(`Server listening on ${port}`);
+        console.log('Routes available:');
+        console.log(server.printRoutes());
     } catch (err) {
         server.log.error(err);
         process.exit(1);
