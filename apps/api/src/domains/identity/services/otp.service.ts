@@ -13,6 +13,8 @@ export class OtpService {
         // Generate 6 digit code
         const code = Math.floor(100000 + Math.random() * 900000).toString();
 
+        console.log(`[DEBUG] Generated OTP for ${phone}: ${code}`);
+
         // Hash code for storage
         const hashCode = await encryption.hash(code);
 
