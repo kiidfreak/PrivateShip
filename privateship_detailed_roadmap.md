@@ -6,17 +6,23 @@ This document outlines the detailed execution plan broken down by domain: Fronte
 
 ## 🎨 Frontend Roadmap (Next.js 14)
 
-### Phase 1: Landing Page & Marketing
+### Phase 1: Landing Page & Marketing (Completed)
 - [x] **Project Setup**: Next.js 14, Tailwind CSS v4, Font configuration.
 - [x] **Design System**: Global variables, Colors, Typography in `globals.css`.
 - [x] **Core Components**: `Button` (variants), `Hero` section.
-- [ ] **Landing Page Sections**:
-  - [ ] **Trust Signal Bar**: Infinite slider of trust/security badges.
-  - [ ] **Problem/Solution**: Visual comparison of Legacy vs. PrivateShip.
-  - [ ] **How It Works**: 3-step animated flow (Verify -> Generate -> Reuse).
-  - [ ] **Use Cases**: Tabbed or grid view of seller/marketplace scenarios.
-  - [ ] **Developer Preview**: Code snippet block with syntax highlighting.
-  - [ ] **Footer**: Navigation and social links.
+- [x] **Landing Page Sections**:
+  - [x] **Trust Signal Bar**: Infinite slider of trust/security badges.
+  - [x] **Problem/Solution**: Visual comparison of Legacy vs. PrivateShip.
+  - [x] **How It Works**: 3-step animated flow (Verify -> Generate -> Reuse).
+  - [x] **Use Cases**: Horizontal scroll view of seller/marketplace scenarios.
+  - [x] **Developer Preview**: Code snippet block with syntax highlighting.
+  - [x] **Footer**: Navigation and social links.
+
+
+### Architecture Note: Ports & Services
+- **Frontend (`apps/web`)**: Runs on `localhost:3000`. Handles Landing Page, Dashboard, and Auth UI.
+- **Backend (`apps/api`)**: Runs on `localhost:3001`. Handles API requests, DB interactions, and Verification logic.
+- **System Communication**: Next.js (Server Components/API Routes) proxies requests to the Fastify API to avoid CORS issues and secure internal tokens.
 
 ### Phase 2: User Authentication & Onboarding
 - [ ] **Auth Pages**:
