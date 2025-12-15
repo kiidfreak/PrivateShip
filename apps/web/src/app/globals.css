@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0D1117;
+  --color-foreground: #E5E5E5;
+
+  --color-bg-primary: #0D1117;
+  --color-bg-secondary: #161b22;
+  --color-midnight: #0D1117;
+  --color-teal: #1DE9B6;
+  --color-neon: #FF6EC7;
+  --color-accent: #1DE9B6;
+  /* Use Teal as primary accent */
+
+  --color-text-primary: #E5E5E5;
+  --color-text-secondary: #A0A0A0;
+  --color-text-muted: #6e7681;
+
+  --shadow-glow-teal: 0 0 20px rgba(29, 233, 182, 0.3);
+  --shadow-glow-neon: 0 0 20px rgba(255, 110, 199, 0.3);
+
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-montserrat);
+  --font-mono: var(--font-fira-code);
+}
+
+:root {
+  --background: #0D1117;
+  --foreground: #E5E5E5;
+}
+
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
+
+code,
+pre {
+  font-family: var(--font-mono);
+}
+
+/* Syntax Highlighting */
+.syntax-keyword {
+  color: var(--color-neon);
+}
+
+.syntax-string {
+  color: #4ade80;
+}
+
+.syntax-comment {
+  color: #9ca3af;
+}
+
+.syntax-number {
+  color: #fb923c;
+}
+
+.syntax-method {
+  color: var(--color-teal);
+}
