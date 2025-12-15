@@ -90,12 +90,12 @@ export function DeveloperSection() {
                                     >
                                         {copied ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4" />}
                                     </button>
-                                    <pre className="text-sm font-mono leading-relaxed font-fira-code">
-                                        <code className="text-gray-300">
+                                    <div className="text-sm font-mono leading-relaxed font-fira-code">
+                                        <div className="text-gray-300">
                                             {/* Simple syntax highlighting hack for visual demo */}
                                             {codeSnippets[activeTab as keyof typeof codeSnippets].split('\n').map((line, i) => (
-                                                <div key={i}>
-                                                    <span className="text-gray-600 select-none mr-4 w-6 inline-block text-right">{i + 1}</span>
+                                                <div key={i} className="flex">
+                                                    <span className="text-gray-600 select-none mr-4 w-6 inline-block text-right shrink-0">{i + 1}</span>
                                                     <span dangerouslySetInnerHTML={{
                                                         __html: line
                                                             .replace(/(const|await|import|from|def)/g, '<span class="syntax-keyword">$1</span>')
@@ -106,8 +106,8 @@ export function DeveloperSection() {
                                                     }} />
                                                 </div>
                                             ))}
-                                        </code>
-                                    </pre>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
